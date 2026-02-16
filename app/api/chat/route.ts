@@ -1,4 +1,4 @@
-import { openai } from "@ai-sdk/openai"
+import { google } from "@ai-sdk/google"
 import { streamText } from "ai"
 
 const systemPrompts = {
@@ -75,7 +75,7 @@ export async function POST(req: Request) {
     }
 
     const result = await streamText({
-      model: openai("gpt-4-turbo"),
+      model: google("gemini-1.5-pro"),
       messages,
       system: systemPrompts[language as keyof typeof systemPrompts] || systemPrompts.en,
       temperature: 0.7,
