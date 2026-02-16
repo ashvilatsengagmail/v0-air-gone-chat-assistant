@@ -74,7 +74,7 @@ export default function SignupPage() {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center space-y-4">
           <div className="flex justify-center">
-            <Image src="/eagri-logo.png" alt="e-Agri Logo" width={60} height={60} className="rounded-lg" />
+            <Image src="/eagri-logo.png" alt="e-Agri Logo" width={100} height={100} />
           </div>
           <div>
             <CardTitle className="text-2xl font-bold text-teal-800">Join e-Agri</CardTitle>

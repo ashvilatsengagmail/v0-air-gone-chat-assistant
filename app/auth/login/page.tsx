@@ -62,7 +62,7 @@ export default function LoginPage() {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center space-y-4">
           <div className="flex justify-center">
-            <Image src="/eagri-logo.png" alt="e-Agri Logo" width={60} height={60} className="rounded-lg" />
+            <Image src="/eagri-logo.png" alt="e-Agri Logo" width={100} height={100} />
           </div>
           <div>
             <CardTitle className="text-2xl font-bold text-teal-800">Welcome Back</CardTitle>
@@ -128,18 +128,6 @@ export default function LoginPage() {
               )}
             </Button>
           </form>
-
-          <div className="mt-4 p-3 bg-teal-50 rounded-lg border border-teal-200">
-            <h4 className="text-sm font-medium text-teal-800 mb-2">Demo Accounts:</h4>
-            <div className="text-xs text-teal-700 space-y-1">
-              <div>
-                <strong>Admin:</strong> admin@eagri.com / admin123
-              </div>
-              <div>
-                <strong>Farmer:</strong> farmer@demo.com / farmer123
-              </div>
-            </div>
-          </div>
 
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
