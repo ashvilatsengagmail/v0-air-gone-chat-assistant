@@ -1,4 +1,4 @@
-import { google } from "@ai-sdk/google"
+import { googleGenerativeAI } from "@ai-sdk/google"
 import { streamText } from "ai"
 
 const systemPrompts = {
@@ -70,21 +70,27 @@ export async function POST(req: Request) {
   try {
     const { messages, language = "en" } = await req.json()
 
+    console.log("[v0] Chat API received:", { messagesCount: messages?.length, language })
+
     if (!messages || !Array.isArray(messages)) {
       return new Response("Invalid messages format", { status: 400 })
     }
 
+    console.log("[v0] Calling Gemini with model: gemini-pro")
+    console.log("[v0] API Key present:", !!process.env.GOOGLE_GENERATIVE_AI_API_KEY)
+
     const result = await streamText({
-      model: google("gemini-1.5-pro"),
+      model: googleGenerativeAI("gemini-pro"),
       messages,
       system: systemPrompts[language as keyof typeof systemPrompts] || systemPrompts.en,
       temperature: 0.7,
       maxTokens: 1000,
     })
 
+    console.log("[v0] Gemini response streaming")
     return result.toDataStreamResponse()
   } catch (error) {
     console.error("[v0] Chat API error:", error)
-    return new Response("Internal server error", { status: 500 })
+    return new Response(JSON.stringify({ error: String(error) }), { status: 500 })
   }
 }

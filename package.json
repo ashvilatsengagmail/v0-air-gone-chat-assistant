@@ -9,9 +9,9 @@
     "start": "next start"
   },
   "dependencies": {
-    "@ai-sdk/google": "^3.0.29",
+    "@ai-sdk/google": "^1.0.0",
     "@ai-sdk/openai": "^1.0.0",
-    "@ai-sdk/react": "^1.0.0",
+    "@ai-sdk/react": "^0.1.0",
     "@aws-sdk/client-s3": "3.989.0",
     "@aws-sdk/s3-request-presigner": "3.989.0",
     "@hookform/resolvers": "^3.9.1",
@@ -41,7 +41,7 @@
     "@radix-ui/react-toggle": "1.1.1",
     "@radix-ui/react-toggle-group": "1.1.1",
     "@radix-ui/react-tooltip": "1.1.6",
-    "ai": "^4.0.0",
+    "ai": "^3.0.0",
     "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
