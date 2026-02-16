@@ -38,7 +38,7 @@ export default function LoginPage() {
       const data = await response.json()
 
       if (response.ok) {
-        localStorage.setItem("airgone-user", JSON.stringify(data.user))
+        localStorage.setItem("eagri-user", JSON.stringify(data.user))
         router.push("/")
       } else {
         setError(data.error || "Login failed")
@@ -62,11 +62,11 @@ export default function LoginPage() {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center space-y-4">
           <div className="flex justify-center">
-            <Image src="/airgone-logo.png" alt="AirGone Logo" width={60} height={60} className="rounded-lg" />
+            <Image src="/eagri-logo.png" alt="e-Agri Logo" width={60} height={60} className="rounded-lg" />
           </div>
           <div>
-            <CardTitle className="text-2xl font-bold text-green-800">Welcome Back</CardTitle>
-            <CardDescription>Sign in to your AirGone farming assistant account</CardDescription>
+            <CardTitle className="text-2xl font-bold text-teal-800">Welcome Back</CardTitle>
+            <CardDescription>Sign in to your e-Agri farming assistant account</CardDescription>
           </div>
         </CardHeader>
         <CardContent>
@@ -117,7 +117,7 @@ export default function LoginPage() {
               </div>
             </div>
 
-            <Button type="submit" className="w-full bg-green-600 hover:bg-green-700" disabled={isLoading}>
+            <Button type="submit" className="w-full bg-teal-600 hover:bg-teal-700" disabled={isLoading}>
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -129,11 +129,11 @@ export default function LoginPage() {
             </Button>
           </form>
 
-          <div className="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
-            <h4 className="text-sm font-medium text-blue-800 mb-2">Demo Accounts:</h4>
-            <div className="text-xs text-blue-700 space-y-1">
+          <div className="mt-4 p-3 bg-teal-50 rounded-lg border border-teal-200">
+            <h4 className="text-sm font-medium text-teal-800 mb-2">Demo Accounts:</h4>
+            <div className="text-xs text-teal-700 space-y-1">
               <div>
-                <strong>Admin:</strong> admin@airgone.com / admin123
+                <strong>Admin:</strong> admin@eagri.com / admin123
               </div>
               <div>
                 <strong>Farmer:</strong> farmer@demo.com / farmer123
@@ -144,7 +144,7 @@ export default function LoginPage() {
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
               Don't have an account?{" "}
-              <Link href="/auth/signup" className="font-medium text-green-600 hover:text-green-500">
+              <Link href="/auth/signup" className="font-medium text-teal-600 hover:text-teal-500">
                 Sign up here
               </Link>
             </p>

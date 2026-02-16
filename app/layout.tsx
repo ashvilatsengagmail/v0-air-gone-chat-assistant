@@ -6,8 +6,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'e-Agri - AI Farming Assistant',
+  description: 'e-Agri is an AI-powered chat assistant designed to help smallholder farmers with crop management, pest control, weather tips, and best farming practices.',
   generator: 'v0.app',
   icons: {
     icon: [

@@ -4,10 +4,10 @@ import { type NextRequest, NextResponse } from "next/server"
 const users = new Map()
 
 // Initialize with admin user
-users.set("admin@airgone.com", {
+users.set("admin@eagri.com", {
   id: "admin-001",
-  name: "AirGone Admin",
-  email: "admin@airgone.com",
+  name: "e-Agri Admin",
+  email: "admin@eagri.com",
   password: "admin123",
   farmSize: "large",
   location: "Global",

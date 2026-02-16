@@ -43,7 +43,7 @@ export default function SignupPage() {
       const data = await response.json()
 
       if (response.ok) {
-        localStorage.setItem("airgone-user", JSON.stringify(data.user))
+        localStorage.setItem("eagri-user", JSON.stringify(data.user))
         router.push("/")
       } else {
         setError(data.error || "Signup failed")
@@ -74,10 +74,10 @@ export default function SignupPage() {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center space-y-4">
           <div className="flex justify-center">
-            <Image src="/airgone-logo.png" alt="AirGone Logo" width={60} height={60} className="rounded-lg" />
+            <Image src="/eagri-logo.png" alt="e-Agri Logo" width={60} height={60} className="rounded-lg" />
           </div>
           <div>
-            <CardTitle className="text-2xl font-bold text-green-800">Join AirGone</CardTitle>
+            <CardTitle className="text-2xl font-bold text-teal-800">Join e-Agri</CardTitle>
             <CardDescription>Create your farming assistant account</CardDescription>
           </div>
         </CardHeader>
@@ -186,7 +186,7 @@ export default function SignupPage() {
               />
             </div>
 
-            <Button type="submit" className="w-full bg-green-600 hover:bg-green-700" disabled={isLoading}>
+            <Button type="submit" className="w-full bg-teal-600 hover:bg-teal-700" disabled={isLoading}>
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -201,7 +201,7 @@ export default function SignupPage() {
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
               Already have an account?{" "}
-              <Link href="/auth/login" className="font-medium text-green-600 hover:text-green-500">
+              <Link href="/auth/login" className="font-medium text-teal-600 hover:text-teal-500">
                 Sign in here
               </Link>
             </p>

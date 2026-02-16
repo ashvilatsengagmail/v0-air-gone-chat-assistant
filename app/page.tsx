@@ -62,7 +62,7 @@ const languages = [
   { code: "fr", name: "Français", flag: "🇫🇷" },
 ]
 
-export default function AirGoneChat() {
+export default function eAgriChat() {
   const [user, setUser] = useState<FarmUser | null>(null)
   const [language, setLanguage] = useState("en")
   const [chatHistory, setChatHistory] = useState<ChatHistory[]>([])
@@ -108,7 +108,7 @@ export default function AirGoneChat() {
 
   // Check authentication
   useEffect(() => {
-    const userData = localStorage.getItem("airgone-user")
+    const userData = localStorage.getItem("eagri-user")
     if (userData) {
       setUser(JSON.parse(userData))
     } else {
@@ -119,7 +119,7 @@ export default function AirGoneChat() {
   // Load chat history from localStorage
   useEffect(() => {
     if (user) {
-      const saved = localStorage.getItem(`airgone-chat-history-${user.id}`)
+      const saved = localStorage.getItem(`eagri-chat-history-${user.id}`)
       if (saved) {
         setChatHistory(JSON.parse(saved))
       }
@@ -129,12 +129,12 @@ export default function AirGoneChat() {
   // Save chat history to localStorage
   useEffect(() => {
     if (user && chatHistory.length > 0) {
-      localStorage.setItem(`airgone-chat-history-${user.id}`, JSON.stringify(chatHistory))
+      localStorage.setItem(`eagri-chat-history-${user.id}`, JSON.stringify(chatHistory))
     }
   }, [chatHistory, user])
 
   const handleLogout = () => {
-    localStorage.removeItem("airgone-user")
+    localStorage.removeItem("eagri-user")
     setUser(null)
     router.push("/auth/login")
   }
@@ -209,9 +209,9 @@ export default function AirGoneChat() {
 
   const getGreeting = () => {
     const greetings = {
-      en: `Hello ${user?.name}! I'm AirGone, your AI farming assistant. How can I help you with your ${user?.primaryCrops} crops today?`,
-      es: `¡Hola ${user?.name}! Soy AirGone, tu asistente de IA agrícola. ¿Cómo puedo ayudarte con tus cultivos de ${user?.primaryCrops} hoy?`,
-      fr: `Bonjour ${user?.name}! Je suis AirGone, votre assistant IA agricole. Comment puis-je vous aider avec vos cultures de ${user?.primaryCrops} aujourd'hui?`,
+      en: `Hello ${user?.name}! I'm e-Agri, your AI farming assistant. How can I help you with your ${user?.primaryCrops} crops today?`,
+      es: `¡Hola ${user?.name}! Soy e-Agri, tu asistente de IA agrícola. ¿Cómo puedo ayudarte con tus cultivos de ${user?.primaryCrops} hoy?`,
+      fr: `Bonjour ${user?.name}! Je suis e-Agri, votre assistant IA agricole. Comment puis-je vous aider avec vos cultures de ${user?.primaryCrops} aujourd'hui?`,
     }
     return greetings[language as keyof typeof greetings] || greetings.en
   }
@@ -231,10 +231,10 @@ export default function AirGoneChat() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
-              <Image src="/airgone-logo.png" alt="AirGone Logo" width={40} height={40} className="rounded-lg" />
+              <Image src="/eagri-logo.png" alt="e-Agri Logo" width={40} height={40} className="rounded-lg" />
               <div>
-                <h1 className="text-xl font-bold text-green-800">AirGone</h1>
-                <p className="text-sm text-green-600">AI Farming Assistant</p>
+                <h1 className="text-xl font-bold text-teal-800">e-Agri</h1>
+                <p className="text-sm text-teal-600">AI Farming Assistant</p>
               </div>
             </div>
 
@@ -350,13 +350,13 @@ export default function AirGoneChat() {
                   <div className="text-center space-y-6">
                     <div className="space-y-2">
                       <Image
-                        src="/airgone-logo.png"
-                        alt="AirGone"
+                        src="/eagri-logo.png"
+                        alt="e-Agri"
                         width={80}
                         height={80}
                         className="mx-auto rounded-xl"
                       />
-                      <h2 className="text-2xl font-bold text-green-800">Welcome back, {user.name}!</h2>
+                      <h2 className="text-2xl font-bold text-teal-800">Welcome back, {user.name}!</h2>
                       <p className="text-gray-600 max-w-md mx-auto">{getGreeting()}</p>
                       <Alert className="max-w-md mx-auto">
                         <Camera className="h-4 w-4" />
@@ -432,7 +432,7 @@ export default function AirGoneChat() {
                                 style={{ animationDelay: "0.2s" }}
                               ></div>
                             </div>
-                            <span className="text-sm text-gray-500">AirGone is analyzing...</span>
+                            <span className="text-sm text-gray-500">e-Agri is analyzing...</span>
                           </div>
                         </div>
                       </div>
@@ -502,17 +502,17 @@ export default function AirGoneChat() {
                   <Button
                     type="submit"
                     disabled={isLoading || (!input || input.trim() === "") && uploadedImages.length === 0}
-                    className="bg-green-600 hover:bg-green-700 text-white"
+                    className="bg-teal-600 hover:bg-teal-700 text-white"
                   >
                     <Send className="w-4 h-4" />
                   </Button>
                 </form>
                 <p className="text-xs text-gray-500 mt-2 text-center">
                   {language === "es"
-                    ? "AirGone puede cometer errores. Verifica información importante."
+                    ? "e-Agri puede cometer errores. Verifica información importante."
                     : language === "fr"
-                      ? "AirGone peut faire des erreurs. Vérifiez les informations importantes."
-                      : "AirGone can make mistakes. Check important info."}
+                      ? "e-Agri peut faire des erreurs. Vérifiez les informations importantes."
+                      : "e-Agri can make mistakes. Check important info."}
                 </p>
               </div>
             </CardContent>
