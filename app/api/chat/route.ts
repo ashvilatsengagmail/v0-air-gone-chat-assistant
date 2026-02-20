@@ -1,4 +1,4 @@
-import { googleGenerativeAI } from "@ai-sdk/google"
+import { google } from "@ai-sdk/google"
 import { streamText } from "ai"
 
 const systemPrompts = {
@@ -80,7 +80,7 @@ export async function POST(req: Request) {
     console.log("[v0] API Key present:", !!process.env.GOOGLE_GENERATIVE_AI_API_KEY)
 
     const result = await streamText({
-      model: googleGenerativeAI("gemini-pro"),
+      model: google("gemini-pro"),
       messages,
       system: systemPrompts[language as keyof typeof systemPrompts] || systemPrompts.en,
       temperature: 0.7,
