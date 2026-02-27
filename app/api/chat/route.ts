@@ -1,5 +1,9 @@
-import { google } from "@ai-sdk/google"
-import { streamText } from "ai"
+import { generateText, streamText } from "ai"
+import { createGoogleGenerativeAI } from "@ai-sdk/google"
+
+const googleAI = createGoogleGenerativeAI({
+  apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY,
+})
 
 const systemPrompts = {
   en: `You are e-Agri, an AI farming assistant designed to help smallholder farmers with practical agricultural advice. You provide clear, actionable guidance on:
@@ -80,7 +84,7 @@ export async function POST(req: Request) {
     console.log("[v0] API Key present:", !!process.env.GOOGLE_GENERATIVE_AI_API_KEY)
 
     const result = await streamText({
-      model: google("gemini-pro"),
+      model: googleAI("gemini-pro"),
       messages,
       system: systemPrompts[language as keyof typeof systemPrompts] || systemPrompts.en,
       temperature: 0.7,
