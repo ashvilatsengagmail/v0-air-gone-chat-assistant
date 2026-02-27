@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useChat } from "@ai-sdk/react"
+import { useChat } from "ai/react"
 import { useState, useEffect, useRef } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
